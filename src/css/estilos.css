@@ -1,0 +1,140 @@
+body {
+	font-family: 'Poppins', sans-serif;
+	max-width: 1280px; /* largura */
+	margin:  0 auto;
+}
+
+main:after 
+/* pseudo elemento */
+{
+	content: '';
+	min-height: 100vh;
+	width: 100vw;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background: linear-gradient(90deg, rgba(0, 0, 0, 1) 10%, rgba(0, 0, 0, 0.05926120448179273) 50%, rgba(0, 0, 0, 1) 90%);
+	/* criação da mascara da imagem cssgradient.io cria o codigo*/
+	z-index: -1;
+}
+
+.conteudo 
+/* ponto + class */
+{
+	display: flex;
+	/* flex ajuda a alinhar os elementos */
+	flex-direction: column;
+	/* o padrao é row, aqui o alinhamento fica pela coluna */
+	min-height: 100vh;
+	/* forçando a altura minima vh=view height em 100% */
+	justify-content: space-evenly;
+	/* justificando o conteudo evenly=espaçamento uniforme */
+}
+
+.informacoes .logo
+/* estiliza apenas .logo dentro de .informacoes */
+{
+	
+	max-width: 350px;
+	/* filter: invert(1); */
+	margin-bottom: 80px;
+	
+}
+
+.informacoes .descricao {
+	width: 32%;
+	margin-bottom: 80px;
+	font-size: 22px;
+	color: #169cbe;
+	line-height: 25px;
+	/* espaçamento entre as linhas */
+}
+
+.botoes-carrossel {
+	/* background-color: red;; */
+	display: flex;
+	justify-content: center;
+	gap: 20px;
+}
+
+.botoes-carrossel .botao {
+	background-color: #efbf0f;
+	width/*largura*/: 15px;
+	height: 15px;
+	border-radius: 50%; /*deixa redondo raio 50%*/
+	border: 2px solid transparent;
+	cursor: pointer;
+	border-color: #169cbe;
+}
+
+.botoes-carrossel .botao.selecionado /*sem espaço por ser uma condição de ter as duas classes e tem mais peso de importancia na hierarquia*/ {
+	background-color: #ff0000;
+}
+
+.menu-lateral {
+	position: fixed; /* tira o elemento do fluxo normal vertical */
+	top: 0;
+	right: 0;
+	width: 80px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+}
+.menu-lateral ul
+/* espaçamento dos icones */
+{
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+	font-size: 12px;
+}
+
+
+.menu-lateral .icone {
+	width: 40px;
+	/* filter: invert(1); */
+	transition: 0.3s ease-in-out;
+	/* animação suave no scale*/
+	display: flex;
+ 
+}
+
+.menu-lateral .icone:hover 
+/* hover=sobreposiçao quando passar o mouse em cima vai scalar para 1.2x*/
+{
+	transform: scale(1.2);
+	
+} 
+
+.carrossel {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: -1;
+	/* propriedade de sobreposição -1 coloca a imagem pra tras do texto z= eixo z eixo de profundidade*/
+} 
+
+.carrossel .imagem {
+	width: 100%;
+	height: 100vh;
+	object-fit: cover;
+	display: none;
+	/* esconde as imagens para que elas só apareçam quando forem chamadas no JS  */
+	animation: mudarImagem 0.9s;
+}
+
+.carrossel .imagem.ativa {
+	display: block;
+	/* block = mostrar  */
+}
+
+@keyframes /* programacao da animaçao */mudarImagem {
+	from {
+		opacity: 0.65;
+	}
+	to {
+		opacity: 1;
+	}
+}

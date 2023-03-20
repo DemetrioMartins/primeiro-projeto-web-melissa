@@ -1,0 +1,18 @@
+*/*seletor geral "*"*/ 
+{
+	margin: 0;
+	padding: 0; 
+	/* espaçamento interno do elemento */
+	box-sizing: border-box;
+}
+
+ul /*seletor apenas para listas */
+{
+	list-style: none;
+}
+
+a /* seletor para as anchors */
+{
+	text-decoration: none;
+}
+/* propriedades e valores sempre minusculos */
